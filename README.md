@@ -15,11 +15,11 @@ char* get_path_from_user(){
         
         char_fichier = readFile( str );
 
-                if ( char_fichier != NULL ){ // On peut lire et écrire dans le fichier
+                if ( char_fichier != NULL ){ //On peut lire et écrire dans le fichier
                         good = 1 ;
                 }
                 else {
-                        // On affiche un message d'erreur si on veut
+                        //On affiche un message d'erreur si on veut
                         printf("Impossible d'ouvrir le fichier : ");
             puts( str );
                 }
