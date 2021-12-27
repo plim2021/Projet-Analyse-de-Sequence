@@ -12,7 +12,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 ```
 void affichage_menu (){
     printf("---Menu---\n");
-    printf("1. Recherche de la séquncce codante de taille maximale\n");
+    printf("1. Recherche de la séquence codante de taille maximale\n");
     printf("2. Transcription d'une séquence d'ADN en séquence ARN\n");
     printf("3. Traduction d'une séquence codante en séquence protéique\n");
     printf("4. Calcul du score d'identité entre deux séquences\n");
