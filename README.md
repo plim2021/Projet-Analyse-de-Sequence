@@ -29,7 +29,7 @@ int main (int argc, char *argv[]){
 
     switch(choix){
         case 1: 
-            printf(">> Vous avez choisi : Recherche de la séquncce codante de taille maximale.\n");
+            printf(">> Vous avez choisi : Recherche de la séquence codante de taille maximale.\n");
             break;
         case 2:
             printf(">> Vous avez choisi : Transcription d'une séquence d'ADN en séquence ARN.\n");
@@ -48,7 +48,10 @@ int main (int argc, char *argv[]){
             break;
         case 7:
             printf(">> Vous avez choisi : Recherche de la plus grande sous-chaîne de polarité commune à 2 séquences protéiques.\n");
-            break; 
+            break;
+        default:
+            printf(">> Veuillez choisir une option.\n";
+            break;
     }
     return 0;
 }
