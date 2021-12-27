@@ -3,7 +3,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 
 #include "projet.h"
 
-```
+```ruby
 // Pour colorer l'affichage dans le terminal:
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
@@ -15,7 +15,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 #define RESET "\x1B[0m"
 ```
 
-```
+```ruby
 int main (int argc, char *argv[]){
 
     // Affichage du menu 
