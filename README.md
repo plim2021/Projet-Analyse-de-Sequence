@@ -25,19 +25,23 @@ void traduction ( char* arn) {
             // tu compte de la case i, i+1, i+2 puis tu recommences à la suite i, i+1, i+2 mais je vois pas trop
             
             // on commence par le premier nt du codon -> U
-            ```
+            ```ruby
             if(arn[i] == 'U'){
                 
                 //puis le deuxième nt du codon -> C
+                ```ruby
                 if(arn[i+i+1] == 'C'){
 
                     //on termine avec le troisième nt du codon
                     if(arn[i+i+2] == 'A' || arn[i+2] == 'U' || arn[i+2] == 'G' || arn[i+2] == 'C'){
                         return 'S'; //Serine (UCA, UCG, UCU, UCC)
                     }
+                    ```
             
                 }
+                ```
             }
+        
 
                 //UU
                 else if(arn[i+1] == 'U'){
