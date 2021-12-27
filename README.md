@@ -1,7 +1,7 @@
 # Projet-Analyse-de-Sequence
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
-
+```ruby
 void score(char* seq1, char * seq2){
 
     //appel de la fonction qu'on va modifier pour demander à l'utilisateur le nom de ses 2 fichiers
@@ -11,12 +11,19 @@ void score(char* seq1, char * seq2){
     int taille_seq1, taille_seq2 = 0 ;
     int i, j =0;
     int identite = 0;
+```
+
      //j'ai oublié comment on crée un tableau je verrais plus tard
     //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
+    
+    ```ruby
     char id[];
+    ```
     
     //on parcourt notre séquence tant qu'on n'a pas d'espace
     //et on compte afin d'avoir la taille de notre sequence
+
+    ```ruby
     while(seq1[i] != " ") {
         taille_seq1 ++;
         i++;
@@ -26,24 +33,34 @@ void score(char* seq1, char * seq2){
         taille_seq2 ++;
         i++;
     }
+    ```
 
     //on vérifie que nos séquences sont égales
+
+    ```ruby
     if (taille_seq1 == taille_seq2){
         
         //on parcourt nos deux séquences
         //afin de voir si elles sont identiques
+
+        ```ruby
         for(i=0; i<taille_seq1; i++){
                 
             //si elles sont identiques au même indice on rajoute +1 
             //au nb d'identité
+
+            ```ruby
             if(seq1[i] == seq2[i]){
                 identite++;
 
                 id[i]= seq1[i];
             }
+            ```
 
             
         }
+        ```
+
 
 
         score_id = identite/taille_seq1 ; 
@@ -56,8 +73,11 @@ void score(char* seq1, char * seq2){
 
 
     }
+    ```ruby
     else {
         printf("IMPOSSIBLE : les séquences ne sont pas de taille identique ");
     }
+    ```
 
 }
+```
