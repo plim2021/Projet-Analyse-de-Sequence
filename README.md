@@ -30,7 +30,7 @@ void score(char* seq1, char * seq2){
 
     while(seq2[j] != " ") {
         taille_seq2 ++;
-        i++;
+        j++;
     }
     
 
