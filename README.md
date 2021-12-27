@@ -11,6 +11,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 
 ```
 void affichage_menu (){
+    // fonction permettant d'afficher le menu des commandes proposées
     printf("---Menu---\n");
     printf("1. Recherche de la séquence codante de taille maximale\n");
     printf("2. Transcription d'une séquence d'ADN en séquence ARN\n");
