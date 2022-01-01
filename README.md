@@ -1,3 +1,5 @@
+*Taille_max
+
 void recherchetaillemax (*nomfichier) {
 
   extraxt_sequence(chemin,*seq);
