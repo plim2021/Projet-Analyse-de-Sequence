@@ -11,9 +11,6 @@ void score(char* seq1, char * seq2){
     int taille_seq1, taille_seq2 = 0 ;
     int i, j =0;
     int identite = 0;
-
-     //j'ai oublié comment on crée un tableau je verrais plus tard
-    //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
     
     
     //on parcourt notre séquence tant qu'on n'a pas d'espace
@@ -51,6 +48,9 @@ void score(char* seq1, char * seq2){
 
             }
         }
+        
+        //j'ai oublié comment on crée un tableau je verrais plus tard
+        //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
         char id[identite];
 
         for(j=0; j<taille_seq1; i++){
