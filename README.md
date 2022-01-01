@@ -47,15 +47,17 @@ void score(char* seq1, char * seq2){
 
             
             if(seq1[i] == seq2[i]){
-                identite++; 
+                identite++;
 
-                char id[identite];
-
-                id[i]= seq1[i];
             }
-            
+        }
+        char id[identite];
 
-            
+        for(j=0; j<taille_seq1; i++){
+            if (seq1[i] == seq2[i]){
+                id[i]= seq1[i];
+
+            }
         }
         
 
