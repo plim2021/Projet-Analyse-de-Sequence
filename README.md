@@ -16,7 +16,7 @@ void score(char* seq1, char * seq2){
     //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
     
     
-    char id[];
+    char id[taille_seq1];
     
     
     //on parcourt notre séquence tant qu'on n'a pas d'espace
