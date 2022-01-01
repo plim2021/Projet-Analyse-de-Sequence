@@ -16,9 +16,6 @@ void score(char* seq1, char * seq2){
     //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
     
     
-    char id[taille_seq1];
-    
-    
     //on parcourt notre séquence tant qu'on n'a pas d'espace
     //et on compte afin d'avoir la taille de notre sequence
 
@@ -50,7 +47,9 @@ void score(char* seq1, char * seq2){
 
             
             if(seq1[i] == seq2[i]){
-                identite++;
+                identite++; 
+
+                char id[identite];
 
                 id[i]= seq1[i];
             }
@@ -65,9 +64,9 @@ void score(char* seq1, char * seq2){
         score_id = identite/taille_seq1 ; 
         //on affiche les messages
         printf("Identité de sequence : %d/%d, soit %1lf \n", identite, taille_seq1, score_id);
-        printf("seq1 %s \n", seq1);
-        printf("seq2 %s \n", seq2);
-        printf("-id- %s \n",id );
+        printf("seq1 %s \n", seq1[taille_seq1]);
+        printf("seq2 %s \n", seq2[taille_seq2]);
+        printf("-id- %s \n",id[identite] );
     
 
 
