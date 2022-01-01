@@ -1,4 +1,5 @@
 void recherchetaillemax (*nomfichier) {
+
   extraxt_sequence(chemin,*seq);
   // variable de toute la sequence nucléotidique stockée
   char seq ;
