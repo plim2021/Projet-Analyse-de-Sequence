@@ -2,7 +2,7 @@
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
 ```ruby
-void score(char* seq1, char * seq2){
+void score(char* seq1[], char * seq2[]){
 
     //appel de la fonction qu'on va modifier pour demander à l'utilisateur le nom de ses 2 fichiers
     
@@ -42,7 +42,6 @@ void score(char* seq1, char * seq2){
             //si elles sont identiques au même indice on rajoute +1 
             //au nb d'identité
 
-            
             if(seq1[i] == seq2[i]){
                 identite++;
 
@@ -51,6 +50,7 @@ void score(char* seq1, char * seq2){
         
         //j'ai oublié comment on crée un tableau je verrais plus tard
         //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
+        
         char id[identite];
 
         for(j=0; j<taille_seq1; i++){
