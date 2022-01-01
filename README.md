@@ -50,7 +50,7 @@ void score(char* seq1[], char * seq2[]){
         
         //j'ai oublié comment on crée un tableau je verrais plus tard
         //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
-        
+
         char id[identite];
 
         for(j=0; j<taille_seq1; i++){
@@ -59,9 +59,7 @@ void score(char* seq1[], char * seq2[]){
 
             }
         }
-        
-
-
+    
 
         score_id = identite/taille_seq1 ; 
         //on affiche les messages
