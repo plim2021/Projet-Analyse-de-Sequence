@@ -30,10 +30,10 @@ void traduction ( char* arn) {
                 
                 //puis le deuxième nt du codon -> C
                 ```ruby
-                if(arn[i+i+1] == 'C'){
+                if(arn[i+1] == 'C'){
 
                     //on termine avec le troisième nt du codon
-                    if(arn[i+i+2] == 'A' || arn[i+2] == 'U' || arn[i+2] == 'G' || arn[i+2] == 'C'){
+                    if(arn[i+2] == 'A' || arn[i+2] == 'U' || arn[i+2] == 'G' || arn[i+2] == 'C'){
                         return 'S'; //Serine (UCA, UCG, UCU, UCC)
                     }
                     ```
