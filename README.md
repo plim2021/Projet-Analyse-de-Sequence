@@ -18,7 +18,7 @@ void traduction ( char* arn) {
     
     
     // condition codon initiation AUG et la taille est divisible par 3
-    if (arn[0] == "A" && arn[1] == "U" && arn[2] == "G" && taille_arn % 3 == i) {
+    if (arn[i] == "A" && arn[i+1] == "U" && arn[i+2] == "G" && taille_arn % 3 == i) {
         while(i<taille_arn) {
 
             //ici je dois dire que tu compte après avoir trouvé le codon d'initiation et tu compte de 3 en 3 
