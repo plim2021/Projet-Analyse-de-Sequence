@@ -7,14 +7,9 @@ void traduction ( char* arn) {
     // appel de la fonction qui va permettre à l'utilisateur d'entrer le nom de son fichier
     get_path_from_user();
 
-    int taille_arn = 0 ;
-    int i =i;
-    
-    
-    while(arn[i] != " ") {
-        taille_arn ++;
-        i++;
-    }
+    int taille_arn = strlen(arn) ;
+    int i =0;
+
     
     
     // condition codon initiation AUG et la taille est divisible par 3
