@@ -7,6 +7,12 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 #include <stdio.h>
 #include <stdlib.h>
 
+// Structure
+typedef struct AcideAmine {
+    int polarite ; 
+    char nom ;
+} AcideAmine ;
+
 // Fonctions 
 
 ```
