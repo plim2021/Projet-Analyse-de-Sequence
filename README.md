@@ -4,39 +4,23 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 ```ruby
 void score(char* seq1[], char * seq2[]){
 
-    //appel de la fonction qu'on va modifier pour demander à l'utilisateur le nom de ses 2 fichiers
+    //appel de la fonction quon va modifier pour demander à lutilisateur le nom de ses 2 fichiers
     
     // il faut verifier que les séquences soient bien de taille identique
 
-    int taille_seq1, taille_seq2 = 0 ;
-    int i, j =0;
-    int identite = 0;
-    
-    
-    //on parcourt notre séquence tant qu'on n'a pas d'espace
-    //et on compte afin d'avoir la taille de notre sequence
-
-    
-    while(seq1[i] != " ") {
-        taille_seq1 ++;
-        i++;
-    }
-
-    while(seq2[j] != " ") {
-        taille_seq2 ++;
-        j++;
-    }
-    
+    int taille_seq1 = strlen(seq1); // taille de la séquence 1
+    int taille_seq2 = strlen(seq2); // taille de la séquence 2
 
     //on vérifie que nos séquences sont égales
 
-    
     if (taille_seq1 == taille_seq2){
         
-        //on parcourt nos deux séquences
-        //afin de voir si elles sont identiques
+        int i; //parcourt les sequences
+        int identite = 0; //nb éléments identiques
+        char id[taille_seq1+1]; // stock le résultat, on met +1 pour stocker le caractère spéciale '\0' 
 
-        
+        //on parcourt nos deux séquences afin de voir si elles sont identiques
+
         for(i=0; i<taille_seq1; i++){
                 
             //si elles sont identiques au même indice on rajoute +1 
@@ -44,29 +28,23 @@ void score(char* seq1[], char * seq2[]){
 
             if(seq1[i] == seq2[i]){
                 identite++;
-
-            }
-        }
-        
-        //j'ai oublié comment on crée un tableau je verrais plus tard
-        //ici on crée un tableau de caractère pour ressoritr que les nt ou aa identiques
-
-        char id[identite];
-
-        for(j=0; j<taille_seq1; i++){
-            if (seq1[i] == seq2[i]){
                 id[i]= seq1[i];
+        
+            }
+            else{
+                id[i]='-';
 
             }
         }
     
+    
 
-        score_id = identite/taille_seq1 ; 
+        int score_id = (identite/taille_seq1) *100 ; //calcule le score didentité
         //on affiche les messages
-        printf("Identité de sequence : %d/%d, soit %1lf \n", identite, taille_seq1, score_id);
-        printf("seq1 %s \n", seq1[taille_seq1]);
-        printf("seq2 %s \n", seq2[taille_seq2]);
-        printf("-id- %s \n",id[identite] );
+        printf("Identité de sequence : %d/%d, soit %.1lf % \n", identite, taille_seq1, score_id);
+        printf("seq1 %s \n", &seq1[taille_seq1]);
+        printf("seq2 %s \n", &seq2[taille_seq2]);
+        printf("-id- %s \n", id[identite]);
     
 
 
