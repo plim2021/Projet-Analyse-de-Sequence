@@ -28,5 +28,5 @@ void transcription(char *adn) {
         }
         
     }
-    return 0;
+    
 }
