@@ -29,7 +29,9 @@ void traduction () {
                         if(arn[i+2] == 'A' || arn[i+2] == 'U' || arn[i+2] == 'G' || arn[i+2] == 'C'){
                             frpintf("S"); //Serine (UCA, UCG, UCU, UCC)
                         }
-                        
+                        else {
+                            fprintf("~"); //Si on ne trouve pas d aa correspondante
+                        }
                 
                 }
 
@@ -43,6 +45,9 @@ void traduction () {
                     else if (arn[i+2] == 'A' || arn[i+2] == 'G'){
                         fprintf("L"); //Leucine (UUA, UUG)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
                 
                 }
                 //UA
@@ -54,6 +59,9 @@ void traduction () {
                     }
                     else if (arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("Y"); //Tyrosine (UAU, UAC)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                         
                 }
@@ -67,8 +75,11 @@ void traduction () {
                        fprintf("*") ; //STOP (UGA)
                     }
                         
-                    else{
+                    else if (arn[i+2]) == 'G'{
                         fprintf("W"); //Tryptophane (UGG)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
 
                 }
@@ -83,6 +94,9 @@ void traduction () {
                     if(arn[i+2] == 'A' || arn[i+2] == 'G' || arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("A"); //Alanine (GCU, GCA, GCC, GCG)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
                     
                 }
                 //GG
@@ -90,6 +104,9 @@ void traduction () {
                         
                     if(arn[i+2] == 'A' || arn[i+2] == 'G' || arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("G"); //Glycine (GGG, GGA, GGC, GGU)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                         
                 }
@@ -103,6 +120,9 @@ void traduction () {
                     else if (arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("D"); //acide aspartique (GAC, GAU)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
 
                 }
                 //GU
@@ -110,6 +130,9 @@ void traduction () {
                         
                     if(arn[i+2] == 'A' || arn[i+2] == 'G' || arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("V");//Valine (GUA, GUG, GUC, GUG)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                 }
             }
@@ -126,6 +149,9 @@ void traduction () {
                     else if (arn[i+2] == 'A' || arn[i+2] == 'G'){
                         fprintf("K"); // Lysine  (AAA ou AAG)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
                     
                 }
                 //AC
@@ -133,6 +159,9 @@ void traduction () {
                 
                     if(arn[i+2] == 'A' || arn[i+2] == 'G' || arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("F"); // Thréonine (ACA ou ACG)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                         
                 }
@@ -146,6 +175,9 @@ void traduction () {
                     else if (arn[i+2]=='G'){
                         fprintf("M"); //Methionine (AUG)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
                 }
 
                 //AG
@@ -155,8 +187,11 @@ void traduction () {
                         fprintf("R"); //Arginine (AGG ou AGA)
                     }
 
-                    else (arn[i+2] == 'C' || arn[i+2] == 'U'){
+                    else if(arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("S"); //Serine (AGC ou AGU)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                         
                 }
@@ -164,11 +199,15 @@ void traduction () {
             }
             // C
             else{
-
+                
+                //CU
                 if(arn[i+1] == 'U'){
 
                     if(arn[i+2] == 'A' || arn[i+2] == 'G' || arn[i+2] == 'C' || arn[i+2] == 'U'){
                         fprintf("L"); //Leucine (CUU, CUA, CUC, CUG)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                         
                 }
@@ -178,6 +217,9 @@ void traduction () {
                     if(arn[i+2] == 'A' || arn[i+2] == 'C' || arn[i+2] == 'U' || arn[i+2] == 'G'){
                         fprintf("P"); //Proline (CCA, CCC, CCU, CCG)
                     }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
+                    }
                         
                 }
                 //CG
@@ -185,6 +227,9 @@ void traduction () {
                         
                     if(arn[i+2] == 'A' || arn[i+2] == 'C' || arn[i+2] == 'U' || arn[i+2] == 'G'){
                         fprintf("R"); //Arginine (CGA, CGC, CGU, CGG)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                     
                 }
@@ -197,6 +242,9 @@ void traduction () {
                         
                     else if (arn[i+2] == 'A' || arn[i+2] == 'G'){
                         fprintf("Q"); //Glutamine (CAG, CAA)
+                    }
+                    else {
+                        fprintf("~"); //Si on ne trouve pas d aa correspondante
                     }
                     
                 }
