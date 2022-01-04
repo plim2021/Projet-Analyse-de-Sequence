@@ -33,7 +33,7 @@ void score(char* seq1[], char * seq2[]){
         for(i=0; i<taille_seq1; i++){
                 
             //si elles sont identiques au même indice on rajoute +1 
-            //au nb d'identité
+            //au nb didentité
 
             if(seq1[i] == seq2[i]){
                 identite++;
