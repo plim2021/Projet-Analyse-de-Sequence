@@ -33,7 +33,7 @@ void score(char* seq1[], char * seq2[]){
         for(i=0; i<taille_seq1; i++){
                 
             //si elles sont identiques au même indice on rajoute +1 
-            //au nb didentité
+            //au nb d identité
 
             if(seq1[i] == seq2[i]){
                 identite++;
@@ -49,10 +49,10 @@ void score(char* seq1[], char * seq2[]){
     
     
 
-        int score_id = (identite/taille_seq1) *100 ; //calcule le score didentité
+        double score_id = (identite/taille_seq1) *100 ; //calcule le score didentité
 
         //on affiche les messages
-        printf("Identité de sequence : %d/%d, soit %.1lf % \n", identite, taille_seq1, score_id);
+        printf("Identité de sequence : %d/%d, soit %.1lf \n", identite, taille_seq1, score_id);
         printf("seq1 %s \n", &seq1[taille_seq1]);
         printf("seq2 %s \n", &seq2[taille_seq2]);
         printf("-id- %s \n", id[identite]);
