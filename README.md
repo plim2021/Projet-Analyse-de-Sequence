@@ -50,6 +50,7 @@ void score(char* seq1[], char * seq2[]){
     
 
         int score_id = (identite/taille_seq1) *100 ; //calcule le score didentité
+        
         //on affiche les messages
         printf("Identité de sequence : %d/%d, soit %.1lf % \n", identite, taille_seq1, score_id);
         printf("seq1 %s \n", &seq1[taille_seq1]);
