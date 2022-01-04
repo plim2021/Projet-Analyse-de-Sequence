@@ -1,8 +1,7 @@
 # Projet-Analyse-de-Sequence
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
-#include "projet.h"
-
+```ruby
 void transcription(*adn) {
     // calculer la taille pour la condition divisible par 3
     int taille_adn = 0;
