@@ -2,14 +2,11 @@
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
 ```ruby
-void transcription(*adn) {
+void transcription(char *adn) {
     // calculer la taille pour la condition divisible par 3
-    int taille_adn = 0;
+    int taille_adn = strlen(adn);
     int i = 0;
-    while (adn[i] != " ") {
-         taille_adn ++;
-         i ++;
-     }
+   
     // condition codon initiation ATG et la taille est divisible par 3
     if (adn[0] == "A" && adn[1] == "T" && adn[0] == "G" && taille_adn % 3 == 0) {
         for (int j = 0; j < taille_adn; j++) {
