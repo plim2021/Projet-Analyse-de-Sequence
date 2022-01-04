@@ -45,6 +45,7 @@ void score(char* seq1[], char * seq2[]){
 
             }
         }
+        id[i]='\0';
     
     
 
