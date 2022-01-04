@@ -17,13 +17,12 @@ void recherchetaillemax (*nomfichier) {
     if (seq[i] == "A" && seq[i+1] == "T" && seq[i+2] == "G") {
       // variable compteur de la sequence codante
       int k = 0;
-      int j = i;
       int taille_seqcod = 0;
       // tant qu on à pas de condon TAA, TAG, TGA. On stock dans une variable toute la séquence codante en comptant sa longueur
-      while (seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "A" or seq[j] <> "T" && seq[j+1] <> "G" && seq[j+2] <> "A" or seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "G") {
-        seqcod[k]== seq[j];
+      while (seq[i] <> "T" && seq[i+1] <> "A" && seq[i+2] <> "A" or seq[i] <> "T" && seq[i+1] <> "G" && seq[i+2] <> "A" or seq[i] <> "T" && seq[i+1] <> "A" && seq[i+2] <> "G") {
+        seqcod[k]= seq[i];
         taille_seqcod ++;
-        j ++;
+        i ++;
       }
       // si la longueur de la séquence est divisible par 3
       if (taille_seqcod % 3 = 0) {
