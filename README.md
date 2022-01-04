@@ -7,15 +7,15 @@ void score(char* seq1[], char * seq2[]){
     //appel de la fonction quon va modifier pour demander à lutilisateur le nom de ses 2 fichiers
     
     // il faut verifier que les séquences soient bien de taille identique
-    printf("Entrez le nom de fichier de la séquence");
+    printf("Entrez le nom de fichier de la séquence à comparer\n");
     
-    get_path_from_user(char *seq1);
+    get_path_from_user(char *path_input);
 
-    extract_sequence();
-    printf("Entrez le nom de fichier de la séquence"); 
+    extract_sequence(const char* path_input, char* sequence);
+    printf("Entrez le nom du fichier de la deuxième séquence à comparer\n"); 
 
-    get_path_from_user(char *seq2);
-    extract_sequence();
+    get_path_from_user(char *path_input);
+    extract_sequence(const char* path_input, char* sequence);
 
     int taille_seq1 = strlen(seq1); // taille de la séquence 1
     int taille_seq2 = strlen(seq2); // taille de la séquence 2
