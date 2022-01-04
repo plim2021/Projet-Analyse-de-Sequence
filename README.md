@@ -13,7 +13,7 @@ void traduction () {
     FILE* fichier = NULL;
     fichier = fopen("seq_Prot.txt", "w");
     if (fichier != NULL) {
-        int taille_arn = strlen(arn) ;
+        int taille_arn = strlen(arn) ; //on stock dans une varaible la taille de notre chaîne de caractère
         int i = 0; //parcourt le tableau de caractère 
 
         while(i<taille_arn){
