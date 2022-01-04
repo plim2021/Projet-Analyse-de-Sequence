@@ -17,7 +17,7 @@ void transcription(char *adn) {
          if (fichier != NULL) {
               fputs(*adn, fichier);
                fclose(fichier);
-    }
+        }
         for (int j = 0; j < taille_adn; j++) {
             if (adn[j] == "T") {
                 // si on a une Thymine on remplace par une Uracile
