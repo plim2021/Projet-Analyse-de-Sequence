@@ -2,17 +2,19 @@
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
 ```ruby
-void traduction ( char* arn) {
+void traduction () {
 
     // appel de la fonction qui va permettre à l'utilisateur d'entrer le nom de son fichier
-    get_path_from_user();
 
-    // on commence par le premier nt du codon -> U
+    get_path_from_user(char *path_input);
+
+    extract_sequence(const char* path_input, char* arn);
+
     FILE* fichier = NULL;
     fichier = fopen("seq_Prot.txt", "w");
     if (fichier != NULL) {
         int taille_arn = strlen(arn) ;
-        int i = 0, j;
+        int i = 0; //parcourt le tableau de caractère 
 
         while(i<taille_arn){
 
@@ -201,7 +203,7 @@ void traduction ( char* arn) {
                 
             }
         }
-        i= i+3;
+        i= i+3; // on avance de 3 en 3 pour les codons
     } 
     fclose(fichier);
     
