@@ -19,7 +19,7 @@ void recherchetaillemax (*nomfichier) {
       int k = 0;
       int j = i;
       int taille_seqcod = 0;
-      // tant qu'on à pas de condon TAA, TAG, TGA. On stock dans une variable toute la séquence codante en comptant sa longueur
+      // tant qu on à pas de condon TAA, TAG, TGA. On stock dans une variable toute la séquence codante en comptant sa longueur
       while (seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "A" or seq[j] <> "T" && seq[j+1] <> "G" && seq[j+2] <> "A" or seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "G") {
         seqcod[k]== seq[j];
         taille_seqcod ++;
