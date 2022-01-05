@@ -8,7 +8,10 @@ void traduction () {
 
     get_path_from_user(char *path_input);
 
+
     extract_sequence(const char* path_input, char* arn);
+
+    save_sequence(const char* path_output, char* arn);
 
     FILE* fichier = NULL;
     fichier = fopen("seq_Prot.txt", "w");
@@ -255,4 +258,4 @@ void traduction () {
     } 
     fclose(fichier);
     
-}   
+} 
