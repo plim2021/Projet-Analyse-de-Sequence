@@ -13,6 +13,7 @@ void* get_path_from_user(char * path_input){
 
 ```ruby
 void extract_sequence(const char* path_input, char* sequence){
+//Procédure qui extrait la sequence dans le fichier FASTA et la met dans un tableau de séquence
   
     char ligne[81]; //stock les lignes de 80 caractères, on rajoute 1 pour le caractère spécial '\0'
     int i=0; //indice pour pouvoir incrémenter nos valeurs dans notre tableau qui contiendra la séquence
