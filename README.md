@@ -26,7 +26,7 @@ void score_polarite(){
     int taille_seq1 = strlen(seq1); // stocke la taille de la séquence 1
     int taille_seq2 = strlen(seq2); // stocke la taille de la séquence 2
     char id[taille_seq+1]; // séquence qui indique les zones respectant une similarité, +1 pour ajouter '\0'
-    int score=0; // score qui compte le nombre d'aa similaires
+    int score=0; // score qui compte le nombre daa similaires
     double score_similarite;
     
     if (taille_seq1 == taille_seq2) {
