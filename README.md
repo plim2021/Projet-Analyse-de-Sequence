@@ -2,25 +2,23 @@
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
 ```ruby
-void score(char* seq1[], char * seq2[]){
+void score(){
 
-    //appel de la fonction quon va modifier pour demander à lutilisateur le nom de ses 2 fichiers
-    
-    // il faut verifier que les séquences soient bien de taille identique
     printf("Entrez le nom de fichier de la séquence à comparer\n");
     
     get_path_from_user(char *path_input);
-
     extract_sequence(const char* path_input, char* seq1);
-    printf("Entrez le nom du fichier de la deuxième séquence à comparer\n"); 
-
+    
+    printf("Entrez le nom du fichier de la deuxième séquence à comparer\n");
+    
     get_path_from_user(char *path_input);
     extract_sequence(const char* path_input, char* seq2);
+    
 
     int taille_seq1 = strlen(seq1); // taille de la séquence 1
     int taille_seq2 = strlen(seq2); // taille de la séquence 2
 
-    //on vérifie que nos séquences sont égales
+    //on vérifie que nos séquences sont de taiille identique
 
     if (taille_seq1 == taille_seq2){
         
