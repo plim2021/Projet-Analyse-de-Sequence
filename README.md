@@ -4,7 +4,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 ```ruby
 void score(){
 
-    printf("Entrez le nom de fichier de la séquence à comparer\n");
+    printf("Entrez le nom du fichier de la séquence à comparer\n");
     
     get_path_from_user(char *path_input);
     extract_sequence(const char* path_input, char* seq1);
