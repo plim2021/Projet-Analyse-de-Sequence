@@ -5,7 +5,11 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 
 void recherchetaillemax (*nomfichier) {
 
-  extraxt_sequence(chemin,*seq);
+    printf("Entrez le nom de votre fichier" :);
+    get_path_from_user(char * path_input);
+
+    //appel la fonction qui va extraire la séquence et la mettre dans un tableau
+    extract_sequence(const char* path_input, char* adn);
   // variable de toute la sequence nucléotidique stockée
   char seq ;
   // variables stockeuses de la séquence codante la plus longue et de sa taille
