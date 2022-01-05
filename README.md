@@ -5,7 +5,7 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 void* get_path_from_user(char * path_input){
 //Procédure qui va permettre à notre utilisateur de donner le nom du fichier
 
-    printf("Entrez le nom de votre fichier" :), 
+    printf("Entrez le nom de votre fichier" :);
     scanf("%30s", path_input);
               
 }
