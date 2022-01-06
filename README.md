@@ -1,5 +1,6 @@
 # Projet-Analyse-de-Sequence
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
+# define SIZE 10000
 
 ```ruby
 
@@ -10,7 +11,7 @@ void recherchetaillemax () {
     get_path_from_user(&path_input);
 
     //appel la fonction qui va extraire la séquence et la mettre dans un tableau
-    char seq[];
+    char seq[SIZE];
     extract_sequence(&path_input, &seq);
 
     char nom_fichier = "seq_codante_max.txt";
@@ -18,14 +19,14 @@ void recherchetaillemax () {
     int taille_seq_entiere = strlen(seq);
 
     // Variables stockeuses de la séquence codante la plus longue et de sa taille
-    char seqcod_max ;
+    char seqcod_max[SIZE] = 'Z'; // permet de savoir si on a trouvé une séquence codante
     int taille_seqcod_max = 0;
 
     int i = 0; // indice qui parcourt la séquence entière
 
     // Parcours pour chaque séquence codante trouvée
     int k, taille_seqcod ; // indice qui parcourt la séquence codante, variable qui compte sa longueur
-    char seq_cod[]; // variable qui stocke la séquence codante trouvée
+    char seq_cod[SIZE]; // variable qui stocke la séquence codante trouvée
     int j; // indice qui parcourt la séquence codante trouvée
 
     //  trouve le brin complémentaire
@@ -58,10 +59,12 @@ void recherchetaillemax () {
             taille_seqcod = 0;
             j=i; // on choisit de commencer par l indice i pour stocker le codon start dans seq_cod
 
-            // tant qu on à pas de condon TAA, TAG, TGA. On stocke dans une variable toute la séquence codante en comptant sa longueur
+
+            // tant qu on à pas de condon TAA, TAG, TGA ou qu on ne trouve pas de codon stop. On stocke dans une variable toute la séquence codante en comptant sa longueur
             while (seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "A" \
             || seq[j] <> "T" && seq[j+1] <> "G" && seq[j+2] <> "A" \
-            || seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "G") {
+            || seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "G"
+            || seq[j] <> '\0') {
                 seq_cod[k]= seq[i]; // on écrit le nucléotide seq[i] dans seq_cod[k]
                 taille_seqcod++; // la taille de la séquence codante augmente de 1
                 j++; // on continue de parcourir la séquence
@@ -72,8 +75,8 @@ void recherchetaillemax () {
             if (taille_seqcod % 3 = 0) {
             // et si la longueur de la séquence trouvée est plus grande que la séquence trouvée précédement on remplace la taille et le contenu de la séq codante max dans les variables stockeuses
                 if (taille_seqcod > taille_seqcod_max) {
-                    taille_seqcod_max == taille_seqcod;
-                    seqcod_max == seqcod;
+                    taille_seqcod_max = taille_seqcod;
+                    seqcod_max = seqcod;
                 }
             }
         }
@@ -94,7 +97,8 @@ void recherchetaillemax () {
 
             while (seq[j] <> "T" && seq[j-1] <> "A" && seq[j-2] <> "A" \
             || seq[j] <> "T" && seq[j-1] <> "G" && seq[j-2] <> "A" \
-            || seq[j] <> "T" && seq[j-1] <> "A" && seq[j-2] <> "G") {
+            || seq[j] <> "T" && seq[j-1] <> "A" && seq[j-2] <> "G"
+            || seq[j] <> '\0') {
                 seq_cod[k]= seq[m]; // on écrit le nucléotide seq[m] dans seq_cod[k]
                 taille_seqcod++; 
                 j++; 
@@ -111,5 +115,30 @@ void recherchetaillemax () {
         }
         m--; // on parcourt le brin à l envers
     }
-    save_sequence( nom_fichier, &seqcod_max);
+
+    // Si aucune séquence codante n a été trouvée
+    if (seqcod_max == 'Z') {
+        
+        FILE* f= fopen("seq_codante_max.txt", "w");
+        if (!f) {
+            print("L'ouverture du fichier a échoué \n");
+            exit(EXIT_FAILURE);
+        }
+        fprintf(" \n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
+        fclose(f); 
+    
+    } else { // Si une séquence codante a été trouvée
+
+        // On sauvegarde la séquence codante
+        save_sequence( nom_fichier, &seqcod_max);
+        // On sauvegarde la taille de la séquence codante 
+        FILE* f= fopen("seq_codante_max.txt", "w");
+            if (!f) {
+                print("L'ouverture du fichier a échoué \n");
+                exit(EXIT_FAILURE);
+
+            }
+            fprintf(" \n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
+        fclose(f);
+    }
 }
