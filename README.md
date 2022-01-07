@@ -136,7 +136,6 @@ void recherchetaillemax () {
             if (!f) {
                 print("L'ouverture du fichier a échoué \n");
                 exit(EXIT_FAILURE);
-
             }
             fprintf(" \n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
         fclose(f);
