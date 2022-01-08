@@ -190,9 +190,8 @@ void recherchetaillemax() {
             }
         }
     }
-    ```
-
-    ```ruby
+    
+    
     // Si aucune séquence codante n a été trouvée
     if (seqcod_max[0] == 'Z') {
         
