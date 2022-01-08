@@ -14,7 +14,8 @@ void score_polarite(){
     // et qui calcule le score de similarité de polarité entre les deux séquences et affiche leur alignement
 
     // L'utilisateur entre le nom du 1er fichier
-    printf(CYN ">> Entrez le nom de fichier de la première séquence \n" RESET);
+    printf(CYN ">> Ce module requiert de fournir 2 séquences protéiques.\n");
+    printf(">> Premiere séquence protéique :\n"RESET);
 
     char path_input1[30];
     char seq1[1000];
@@ -24,7 +25,7 @@ void score_polarite(){
     printf("\n");
 
     // L'utilisateur entre le nom du 2eme fichier
-    printf(CYN ">> Entrez le nom du fichier de la deuxième séquence à comparer\n" RESET);
+    printf(CYN ">> Deuxième séquence protéique :\n" RESET);
     
     char path_input2[30];
     char seq2[1000];
