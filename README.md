@@ -7,7 +7,11 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 #include <string.h>
 
 ```ruby
-#define SIZE 10000 // taille des séquences
+// Constante
+
+#define SIZE 10000 // taille maximale des séquences
+
+// Affichage coloré
 
 #define RED   "\x1B[31m" // pour les messages d'erreur
 #define ORA   "\x1B[32m" // pour le menu
