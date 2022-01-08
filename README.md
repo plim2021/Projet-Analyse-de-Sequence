@@ -30,7 +30,7 @@ void score(){
     int taille_seq1 = strlen(seq1); // taille de la séquence 1
     int taille_seq2 = strlen(seq2); // taille de la séquence 2
 
-    //on vérifie que nos séquences sont de taiille identique
+    //on vérifie que nos séquences sont de taille identique
 
     if (taille_seq1 == taille_seq2){
         
