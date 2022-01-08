@@ -2,78 +2,57 @@
 projet noté – Logiciel d’analyse de séquences - Mini Informatique 1 
 
 ```ruby
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
+#include "module2.h"
 #include "utils.h"
 
-void score(){
+void transcription() {
 
-    printf("Entrez le nom de fichier de la séquence à comparer\n");
+    // Procédure qui demande à l utilisateur de fournir une séquence ADN codante 
+    // et qui écrit dans un nouveau fichier la transcription de cette séquence
 
-    char path_input1[30];
-    char seq1[1000];
+    // L utilisateur entre le nom du fichier
+    char path_input[30];
+    get_path_from_user(path_input);
+
+    // Extraction de la séquence dans la variable séquence
+    char sequence[10000];
+    extract_sequence(path_input, sequence);
+
+
+    int taille_adn = strlen(sequence); // stocke la taille de la séquence
+    char arn[taille_adn +1]; // stocke la séquence ARN
+    char nom_fichier[]= "sequence_arn.fasta";
+
+    // Conditions : présence du codon d initiation et la taille de séquence est divisible par 3
+    if ( taille_adn % 3 == 0 && (strncmp("ATG",sequence,3)==0) )  {
     
-    get_path_from_user(path_input1);
-    extract_sequence(path_input1, seq1);
-    printf("\n");
-    
-    printf("Entrez le nom du fichier de la deuxième séquence à comparer\n");
-    
-    char path_input2[30];
-    char seq2[1000];
-    
-    get_path_from_user(path_input2);
-    extract_sequence(path_input2, seq2);
-    printf("\n");
-    
-
-    int taille_seq1 = strlen(seq1); // taille de la séquence 1
-    int taille_seq2 = strlen(seq2); // taille de la séquence 2
-
-    //on vérifie que nos séquences sont de taiille identique
-
-    if (taille_seq1 == taille_seq2){
-        
-        int i; //parcourt les sequences
-        double identite = 0; //nb éléments identiques
-        char id[taille_seq1+1]; // stock le résultat, on met +1 pour stocker le caractère spéciale '\0' 
-
-        //on parcourt nos deux séquences afin de voir si elles sont identiques
-
-        for(i=0; i<taille_seq1; i++){
+        for (int j=0 ; j<taille_adn ; j++) {
+            
+            // si on a une Thymine on remplace par une Uracile
+            if (sequence[j] == 'T') {
                 
-            //si elles sont identiques au même indice on rajoute +1 
-            //au nb d identité
-
-            if(seq1[i] == seq2[i]){
-                identite++;
-                id[i]= seq1[i];
-        
-            }
-            else{
-                id[i]='-';
-
+                arn[j] = 'U';
+           
+            } else {
+                
+                arn[j]=sequence[j];
             }
         }
-        id[i]='\0';
+        
+        arn[taille_adn]='\0';
 
-        // Calcul du score didentité
-        float score_id=0;
-        score_id = (identite/taille_seq1)*100 ;
+    } else { 
+        
+        printf(RED " ERREUR : Vérifiez que la séquence commence par un codon d initiation et qu'elle soit divisible par 3.\n");
+        printf("\n");
 
-        //on affiche les messages
-        printf("Identité de sequence : %.0lf/%d, soit %.1lf \n", identite, taille_seq1, score_id);
-        printf("seq1 %s \n", seq1);
-        printf("seq2 %s \n", seq2);
-        printf("-id- %s \n", id);
+        // On redemande à l utilisateur de rentrer un autre fichier 
+        transcription();
 
     }
     
-    else {
-        printf("IMPOSSIBLE : les séquences ne sont pas de taille identique ");
-    }
-    
-
+    // Sauvegarde de la séquence ARN
+    save_sequence(nom_fichier, arn);
 }
 ```
