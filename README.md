@@ -4,35 +4,41 @@ projet noté – Logiciel d’analyse de séquences - Mini Informatique 1
 
 ```ruby
 
-void recherchetaillemax () {
+#include "utils.h"
+#define SIZE 10000
 
+void recherchetaillemax() {
+
+    char path_input[30];
     
-    printf("Entrez le nom de votre fichier \n" );
-    get_path_from_user(&path_input);
+    get_path_from_user(path_input);
 
     //appel la fonction qui va extraire la séquence et la mettre dans un tableau
     char seq[SIZE];
-    extract_sequence(&path_input, &seq);
+    extract_sequence(path_input, seq);
 
-    char nom_fichier = "seq_codante_max.txt";
+    char nom_fichier[] = "seq_codante_max.fasta";
     // Calcul de la taille de la séquence entière
     int taille_seq_entiere = strlen(seq);
 
     // Variables stockeuses de la séquence codante la plus longue et de sa taille
-    char seqcod_max[SIZE] = 'Z'; // permet de savoir si on a trouvé une séquence codante
+    char seqcod_max[SIZE];
+    seqcod_max[0]='Z'; // flag qui permet de savoir si on a trouvé une séquence codante
     int taille_seqcod_max = 0;
 
     int i = 0; // indice qui parcourt la séquence entière
+    int n ; // indice qui parcourt la nouvelle séquence codante trouvée 
 
     // Parcours pour chaque séquence codante trouvée
-    int k, taille_seqcod ; // indice qui parcourt la séquence codante, variable qui compte sa longueur
+    int taille_seqcod; // indice qui parcourt la séquence codante, variable qui compte sa longueur
     char seq_cod[SIZE]; // variable qui stocke la séquence codante trouvée
-    int j; // indice qui parcourt la séquence codante trouvée
+
 
     //  trouve le brin complémentaire
     int l = 0; // indice qui parcourt la séquence entière
-    char seq_antisens; // variable qui stocke la séquence entière antisens
-    while (l<taille_seq) {
+    char seq_antisens[SIZE]; // variable qui stocke la séquence entière antisens
+
+    while (l<taille_seq_entiere) {
         if (seq[l]=='A') {
             seq_antisens[l]='T';
         }
@@ -48,96 +54,127 @@ void recherchetaillemax () {
         l++;
     }
 
-    // Boucle parcourant toute la séquence entière
-    while (i < taille_seq_entiere) {
+    //anti sera une copie de seq_antisens
+    char anti2[SIZE]; 
 
-        // on entre si on trouve un codon ATG
-        if (seq[i] == "A" && seq[i+1] == "T" && seq[i+2] == "G") {
+    //On copie seq_antisens dans anti2
+    for ( i = 0 ; i < taille_seq_entiere ; i++ ){
 
-            // variable compteur de la sequence codante
-            k = 0;
-            taille_seqcod = 0;
-            j=i; // on choisit de commencer par l indice i pour stocker le codon start dans seq_cod
+        anti2[i] = seq_antisens[i] ; 
 
+    }
 
-            // tant qu on à pas de condon TAA, TAG, TGA ou qu on ne trouve pas de codon stop. On stocke dans une variable toute la séquence codante en comptant sa longueur
-            while (seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "A" \
-            || seq[j] <> "T" && seq[j+1] <> "G" && seq[j+2] <> "A" \
-            || seq[j] <> "T" && seq[j+1] <> "A" && seq[j+2] <> "G"
-            || seq[j] <> '\0') {
-                seq_cod[k]= seq[i]; // on écrit le nucléotide seq[i] dans seq_cod[k]
-                taille_seqcod++; // la taille de la séquence codante augmente de 1
-                j++; // on continue de parcourir la séquence
-                k++;
-            }
+    //On inverse la seq_antisens ( pour ne pas avoir à lire à l envers )
+    for ( i = 1 ; i < taille_seq_entiere ; i++ ){
 
-            // si la longueur de la séquence est divisible par 3
-            if (taille_seqcod % 3 = 0) {
-            // et si la longueur de la séquence trouvée est plus grande que la séquence trouvée précédement on remplace la taille et le contenu de la séq codante max dans les variables stockeuses
-                if (taille_seqcod > taille_seqcod_max) {
-                    taille_seqcod_max = taille_seqcod;
-                    seqcod_max = seqcod;
-                }
-            }
-        }
-        i++;
+        seq_antisens[i - 1 ] = anti2[taille_seq_entiere-i] ;
+
     }
     
-    int m = strlen(seq); // indice qui parcourt le brin antisens
+    //Boucle qui cherche une fois la seq cod max
+    //Dans cod et anti sens 
+    for ( int y = 0 ; y < 1 ; y++ ){
 
-    // Boucle parcourant toute la séquence entière antisens
-    while (m<>0){
-        // on entre si on trouve un codon ATG
-        if (seq[m] == "A" && seq[m-1] == "T" && seq[m-2] == "G") {
+        //2ème tour
+        if ( y == 1 ){
 
-            // variable compteur de la sequence codante
-            k = 0;
-            taille_seqcod = 0;
-            j=m; // on choisit de commencer par l indice i pour stocker le codon start dans seq_cod
-
-            while (seq[j] <> "T" && seq[j-1] <> "A" && seq[j-2] <> "A" \
-            || seq[j] <> "T" && seq[j-1] <> "G" && seq[j-2] <> "A" \
-            || seq[j] <> "T" && seq[j-1] <> "A" && seq[j-2] <> "G"
-            || seq[j] <> '\0') {
-                seq_cod[k]= seq[m]; // on écrit le nucléotide seq[m] dans seq_cod[k]
-                taille_seqcod++; 
-                j++; 
-                k++;
+            //On remplace Seq par l anti sens
+            for ( i = 0 ; i < taille_seq_entiere ; i++ ){
+                seq[i] = seq_antisens[i] ; 
             }
+        }
 
-            if (taille_seqcod % 3 = 0) {
+        //On parcours la séquence ( seq[] ) avec i 
+        for ( i = 0 ; i < taille_seq_entiere ; i++ ){
 
-                if (taille_seqcod > taille_seqcod_max) {
-                    taille_seqcod_max == taille_seqcod;
-                    seqcod_max == seqcod;
+            //On découvre une nouvelle seq cod
+            if ( seq[i] == 'A' && seq[i+1] == 'T' && seq[i+2] == 'G' ) {
+
+                //On init une nouvelle seq_cod
+                taille_seqcod = 0; //Init taille seq_cod
+
+                //On parcours le début du nouveau seq cod 
+                for ( int c = i+3 ; c < taille_seq_entiere ; c++ ) {
+                    
+                    //Si fin de seq_cod
+                    if ( ( seq[c] == 'T' && seq[c+1] == 'A' && seq[c+2] == 'A' ) || \
+                        (seq[c] == 'T' && seq[c+1] == 'G' && seq[c+2] == 'A' ) || \
+                        (seq[c] == 'T' && seq[c+1] == 'A' && seq[c+2] == 'G') ){
+
+                        //Si la taille de ce seq
+                        if ( taille_seqcod_max < taille_seqcod ){
+
+                            //Si taille divisible par 3
+                            if (taille_seqcod % 3 == 0) {
+
+                                //Alors taille max = taille seq
+                                taille_seqcod_max = taille_seqcod;
+
+                                //Si la seq condante max provient de l anti sens
+                                if ( y == 1 ){
+
+                                    /*Alors on remplit la seqcod_max à l envers car on lit 
+                                    l'anti sens à l'envers donc on le remet à l endroit !*/
+                                    for ( n = 1 ; n < taille_seqcod ; n++ ){
+
+                                        seqcod_max[ n - 1 ] = seq_cod[ taille_seqcod - n ];
+
+                                    }
+
+                                } else {
+
+                                    //On remplit Seq Max avec le nouveau Seq
+                                    for ( n = 0 ; n < taille_seqcod ; n++ ){
+
+                                        seqcod_max[n]= seq_cod[n];
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        // On brise la condition du For ( pour éviter qu il continue de compter )
+                        c = taille_seq_entiere ;
+
+                    } 
+
+                    //On remplit Séquence codante avec la séquence
+                    seq_cod[taille_seqcod] = seq[c]; //c parcours du début de notre nouvelle seq sur la seq  jusqu a la fin de la nouvelle seq 
+
+                    //Sinon c est pas la fin du Seq donc on augmente la taille !                
+                    taille_seqcod++;
+
                 }
             }
         }
-        m--; // on parcourt le brin à l envers
     }
 
+
     // Si aucune séquence codante n a été trouvée
-    if (seqcod_max == 'Z') {
+    if (seqcod_max[0] == 'Z') {
         
-        FILE* f= fopen("seq_codante_max.txt", "w");
+        FILE* f= fopen("seq_codante_max.fasta", "w");
         if (!f) {
-            print("L'ouverture du fichier a échoué \n");
+            printf("L'ouverture du fichier a échoué \n");
             exit(EXIT_FAILURE);
         }
-        fprintf(" \n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
+        fprintf(f,"\n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
         fclose(f); 
     
     } else { // Si une séquence codante a été trouvée
 
         // On sauvegarde la séquence codante
-        save_sequence( nom_fichier, &seqcod_max);
+        save_sequence( nom_fichier, seqcod_max);
         // On sauvegarde la taille de la séquence codante 
-        FILE* f= fopen("seq_codante_max.txt", "w");
+        FILE* f= fopen("seq_codante_max.fasta", "a");
             if (!f) {
-                print("L'ouverture du fichier a échoué \n");
+                printf("L'ouverture du fichier a échoué \n");
                 exit(EXIT_FAILURE);
             }
-            fprintf(" \n La taille de la séquence codante maximale est : %d \n", taille_seqcod_max );
+            fprintf(f,"\n La taille de la séquence codante maximale est : %d", taille_seqcod_max);
         fclose(f);
     }
 }
